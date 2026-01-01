@@ -1,11 +1,11 @@
-# Raquel Pedraza - Interactive Web Resume
+# Raquel Pedraza - CV Web 
 
 ¡Hola! Bienvenido al repositorio de mi Curriculum Vitae en formato web.
 El objetivo de esta versión digital de mi trayectoria es ofrecer una lectura atractiva y dinámica, a la vez que reflejar mi enfoque detallista y creativo en el desarrollo web.
 
-## Ver Online (Live Demo)
+## Ver Online 
 Puedes ver el CV funcionando en el siguiente enlace:
-**[🔗 Ver CV Online](https://raquelpedraza.github.io/CV-Web/)**
+**[🔗 Ver CV](https://raquelpedraza.github.io/CV-Web/)**
 
 ---
 
