@@ -1,0 +1,804 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+/* Colores */
+:root {
+  --primary-color: #0f172a; /* Azul Navy (Navbar) */
+  --accent-color: #10b981; /* Verde Esmeralda */
+  --accent-hover: #059669;
+
+  --bg-body: #f1f5f9;
+  --bg-white: #ffffff;
+  --bg-dark-card: #1e293b;
+  --bg-footer: #020617;
+  --bg-soft: #f8fafc; /* Para el appendix */
+
+  --text-main: #334155;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --text-on-dark-muted: #cbd5e1;
+
+  --nav-height: 70px;
+}
+
+/* Limpieza básica */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fuente principal */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* =========================================
+   2. TIPOGRAFÍA GLOBAL & UTILIDADES
+   ========================================= */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.bg-white {
+  background-color: var(--bg-white);
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 2px;
+  background-color: var(--accent-color);
+  margin: 10px auto 0;
+}
+
+/* TARJETAS GENERALES */
+.card,
+.education-card {
+  padding: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border-left: 3px solid var(--accent-color);
+  transition: transform 0.2s;
+}
+.card {
+  background: var(--bg-white);
+}
+.education-card {
+  background: var(--bg-soft);
+}
+.card:hover {
+  transform: translateX(5px);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.card h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.date {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.place {
+  color: var(--text-muted);
+  font-style: italic;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* APÉNDICES (Education & Experience) */
+.education-appendix,
+.experience-appendix {
+  margin-top: 40px;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 3px solid var(--accent-hover);
+}
+
+.education-appendix {
+  background-color: var(--bg-soft);
+}
+.experience-appendix {
+  background-color: var(--bg-white);
+}
+
+.appendix-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.appendix-icon span {
+  font-size: 2rem;
+  color: var(--primary-color);
+  opacity: 0.8;
+}
+.appendix-header h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+}
+.education-appendix p,
+.experience-appendix p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-style: italic;
+  text-align: left;
+  width: 100%;
+}
+
+/* SKILLS */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.skill-group {
+  background: var(--bg-white);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+.skill-group h4 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+.title-icon {
+  width: 30px;
+  height: auto;
+  position: relative;
+  top: 7px;
+  margin-right: 5px;
+}
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.tag {
+  background-color: #e2e8f0;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+  border-radius: 4px;
+}
+.tag.pro {
+  background-color: #ecfdf5;
+  color: var(--accent-hover);
+  border: 1px solid var(--accent-color);
+}
+
+/* IDIOMAS */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.lang-card {
+  background: var(--bg-soft);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid var(--text-on-dark-muted);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.lang-card.highlight {
+  border-bottom-color: var(--accent-color);
+}
+.lang-card h3 {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+.lang-level {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* =========================================
+   3. LAYOUT & COMPONENTES COMUNES
+   ========================================= */
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  letter-spacing: -1.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Botón Contacto */
+.btn-contact {
+  border: 1px solid var(--accent-color);
+  padding: 5px 15px;
+  color: var(--accent-color) !important;
+  background: var(--primary-color);
+}
+.btn-contact:hover {
+  background: var(--accent-color);
+  color: var(--bg-white) !important;
+}
+
+/* Active State */
+.nav-links a.active-link {
+  position: relative;
+}
+/* Línea elegante debajo */
+.nav-links a.active-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--accent-color);
+  transform: scaleX(1); /* La línea aparece */
+  transition: transform 0.3s ease;
+}
+
+/* Excepciones botón contacto activo */
+.nav-links a.btn-contact.active-link::after {
+  display: none !important; /* No queremos el "subrayado" */
+}
+.nav-links a.btn-contact.active-link {
+  background-color: var(--accent-color);
+  color: var(--bg-white) !important;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--bg-white);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-footer);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+.footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.signature {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.7rem;
+  color: var(--accent-color);
+  line-height: 1;
+  position: relative;
+  top: 3px;
+}
+
+.copyright-info {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+}
+
+/* =========================================
+   4. SECCIONES ESPECÍFICAS
+   ========================================= */
+
+/* HERO */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+  background-color: var(--bg-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Fondo de imagen */
+.hero-bg-image {
+  width: 100%;
+  height: 35vh;
+  background-image: url("IMG/fondo_hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.hero-bg-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.3);
+}
+
+/* Tarjeta Principal */
+.profile-card-container {
+  width: 90%;
+  max-width: 750px;
+  background-color: var(--bg-white);
+  margin-top: -80px; /* Efecto de superposición sobre la imagen de fondo */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden; /* Para que la barra verde de abajo respete el borde */
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-body {
+  display: flex;
+  flex-direction: row;
+  min-height: 300px;
+}
+
+/* Foto */
+.profile-img-box {
+  width: 30%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img-box img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Texto */
+.profile-info-box {
+  width: 60%;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.profile-info-box h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 3px;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.profile-info-box h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  color: var(--accent-color);
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  box-shadow: 0 2px 6px rgba(69, 69, 69, 0.1);
+}
+
+.location-text,
+.telephone,
+.email {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Barra Verde- Iconos */
+.social-bar {
+  background-color: var(--accent-color);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-bar a {
+  color: var(--bg-white);
+  font-size: 1.5rem;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.9;
+}
+
+.social-bar a:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Botón Descargar CV */
+.btn-download {
+  display: inline-block;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+  padding: 10px 25px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  margin-top: 30px;
+}
+.btn-download:hover {
+  background: var(--primary-color);
+  color: var(--bg-white);
+  font-weight: 500;
+}
+
+.about-me-text {
+  max-width: 700px;
+  margin: 40px auto 60px auto;
+  text-align: center;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  padding: 0 20px;
+  font-weight: 300;
+}
+
+/* CONTACTO */
+.contact-section {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  text-align: center;
+}
+.contact-section .section-title {
+  color: var(--bg-white);
+}
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* TUS ESTILOS DE CAJA */
+  background-color: var(--bg-dark-card);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: var(--bg-white);
+  transition: all 0.3s ease;
+  height: 130px;
+  width: 200px;
+  border-radius: 5px;
+}
+.contact-text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-on-dark-muted);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.contact-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-5px);
+}
+.contact-item:hover .contact-text {
+  color: var(--bg-white);
+}
+.contact-item:hover img {
+  filter: drop-shadow(0 0 5px var(--accent-color));
+}
+/* Mail y Móvil*/
+.raw-data {
+  user-select: all; /* Permite seleccionar todo el texto con un clic */
+  cursor: text;
+}
+
+/* =========================================
+   5. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+    margin-right: 10px;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: var(--bg-dark-card);
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 25px;
+    display: none;
+    /* Sombra a la izquierda para separarlo del resto de la web */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .profile-card-container {
+    max-width: 750px;
+  }
+  .profile-img-box img {
+    object-fit: contain; /* Muestra la foto entera sin recortar */
+  }
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  /* Ajustamos la imagen de fondo */
+  .hero-bg-image {
+    height: 25vh;
+  }
+  .profile-card-container {
+    width: 95%;
+    margin-top: -60px;
+  }
+  .profile-body {
+    flex-direction: row;
+    min-height: 180px;
+  }
+  .profile-img-box {
+    width: 50%;
+    height: 220px;
+    padding: 10px;
+  }
+  .profile-img-box img {
+    width: auto;
+    height: 100%;
+    max-width: 90%;
+  }
+  .profile-info-box {
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+  }
+  .profile-info-box h1 {
+    font-size: 2rem;
+  }
+  .social-bar {
+    padding: 10px;
+  }
+  .education-appendix,
+  .experience-appendix {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-left: none;
+    border-top: 3px solid var(--accent-color);
+  }
+}
+/* IMPRESIÓN */
+@media print {
+  /* Configuración del documento */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  /* Ocultamos elementos de UI no funcionales impresos */
+  .navbar,
+  .hamburger,
+  .btn-download,     
+  .social-bar,       
+  .hero-bg-image::after,/* Eliminamos overlay oscuro */
+  #contact {
+    display: none !important;
+  }
+
+  /* Ahorro de tinta y legibilidad */
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Reset de estilos de tarjetas para impresión limpia */
+  .bg-soft,
+  .bg-white,
+  .bg-dark-card,
+  .card,
+  .education-card,
+  .skill-group,
+  .lang-card {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  /* Reset del Layout para formato A4 */
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Transformamos la Hero Section en una portada centrada */
+  #home {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    min-height: 90vh !important; /* Ocupamos casi toda la altura de la hoja */
+
+    border: 1px solid #eee !important;
+    border-left: 4px solid var(--accent-color) !important;
+
+    padding: 20px !important;
+    margin-bottom: 40px !important;
+    background-color: white !important;
+  }
+
+  /* Ajuste del Header: Eliminar imagen de fondo y márgenes negativos de diseño web */
+  .hero-bg-image {
+    height: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
+  }
+
+  /* Eliminamos sombras */
+  .profile-card-container {
+    box-shadow: none !important;
+  }
+
+  .profile-info-box h2 {
+    border-bottom: 2px solid #ccc;
+    box-shadow: none !important;
+  }
+
+  /* Ajuste de tipografía para lectura impresa */
+  .profile-info-box h1 {
+    color: black !important;
+  }
+
+  .section-title {
+    color: black !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 20px !important;
+    margin-top: 60px !important;
+    border-bottom: 2px solid #ccc;
+  }
+
+  .section-title::after {
+    display: none;
+  }
+
+  /* Mostramos la URL explícita junto al texto */
+  a {
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: bold;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  /* --- PAGINACIÓN DE SECCIONES --- */
+
+  /* Página 2 */
+  #education {
+    break-before: page !important; /* Forzar que toda la sección salte a una página nueva */
+    display: block !important;
+    border: none !important;
+  }
+
+  .education-appendix {
+    page-break-inside: avoid !important; /* Aseguramos que el contenido interno no se rompa */
+  }
+
+  /* Página 3 */
+  #skills {
+    break-before: page !important;
+    display: block !important;
+    padding-bottom: 40px !important;
+    border-bottom: 3px solid var(--accent-color); /* Separador de secciones */
+  }
+
+  #languages {
+    border: none !important;
+    margin-top: 70px !important;
+    break-inside: avoid;
+  }
+
+  /* Quitamos el color verde del .lang-level del hindi para que destaque el inglés */
+  .lang-card:last-child .lang-level {
+    color: black;
+    font-weight: normal;
+  }
+
+  /* Página 4 */
+  #experience {
+    break-before: page !important;
+    display: block !important;
+  }
+
+  .footer-content {
+    margin-top: 60px;
+  }
+}
